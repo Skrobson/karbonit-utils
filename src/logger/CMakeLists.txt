@@ -1,5 +1,5 @@
 set(logger_src 
-
+	Logger.cpp
 )
 
 add_library(Logger 
@@ -9,6 +9,7 @@ add_library(Logger
 
 target_link_libraries(Logger
 	PUBLIC
+	spdlog::spdlog
 	Singleton
 )
 
