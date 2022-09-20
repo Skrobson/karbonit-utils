@@ -35,20 +35,18 @@ namespace skr
 
 	protected:
 	
-		static std::shared_ptr<T> instance;
-		static std::mutex mtx;
-		static std::atomic<bool> constructed;
+		// static std::shared_ptr<T> instance;
+		// static std::mutex mtx;
+		// static std::atomic<bool> constructed;
 
 	};
 	
-	template<typename T>
-	std::shared_ptr<T> Singleton<T>::instance = nullptr;
+// 	template<typename T>
+// 	std::shared_ptr<T> Singleton<T>::instance = nullptr;
 
-	template<typename T>
-	std::mutex Singleton<T>::mtx;
+// 	template<typename T>
+// 	std::mutex Singleton<T>::mtx;
 
-	template<typename T>
-	std::atomic<bool> Singleton<T>::constructed = false;
+// 	template<typename T>
+// 	std::atomic<bool> Singleton<T>::constructed = false;
 }
-
-
