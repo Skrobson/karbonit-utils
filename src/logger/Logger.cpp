@@ -21,16 +21,16 @@ void LogManager::init()
 void LogManager::configureDefaultConsoleSink()
 {
     auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt >();
-    sinks.insert_or_assign(Sink::CONSOLE, console_sink);
+    sinks.insert_or_assign(SinkType::CONSOLE, console_sink);
 }
 
 void LogManager::configureDefaultFileSink(std::string_view logFilename)
 {
     auto file_sink = std::make_shared<spdlog::sinks::rotating_file_sink_mt> (logFilename.data(), 1024*1024, 5, false);
-    sinks.insert_or_assign(Sink::FILE, file_sink);
+    sinks.insert_or_assign(SinkType::FILE, file_sink);
 }
 
-void LogManager::setSinkLevel(LogManager::Sink sink, log_level l)
+void LogManager::setSinkLevel(LogManager::SinkType sink, log_level l)
 {
     if(auto s = sinks.find(sink); s != sinks.end())
         s->second->set_level(l);

@@ -20,7 +20,8 @@ namespace skr::logger
     class LogManager: public skr::Singleton<LogManager>
     {
     public:
-        enum Sink
+
+        enum SinkType
         {
             CONSOLE,
             FILE,
@@ -32,7 +33,7 @@ namespace skr::logger
         void configureDefaultConsoleSink();
         void configureDefaultFileSink(std::string_view logFilename = "Log.txt");
 
-        void setSinkLevel(LogManager::Sink sink, log_level l);
+        void setSinkLevel(LogManager::SinkType sink, log_level l);
         
         //should be called after configure sinks
         void init();
@@ -41,7 +42,7 @@ namespace skr::logger
 
     private:
         std::shared_ptr<spdlog::async_logger> defaultLogger;
-        std::map<LogManager::Sink,spdlog::sink_ptr> sinks;
+        std::map<LogManager::SinkType,spdlog::sink_ptr> sinks;
         
         //std::map<LogToken, spdlog::async_logger> loggersMap;
     };
