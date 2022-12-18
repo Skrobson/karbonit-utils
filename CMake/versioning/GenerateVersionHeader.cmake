@@ -1,10 +1,13 @@
 function(generateVersionFromGit)
 if(GIT_EXECUTABLE)
-  get_filename_component(SRC_DIR ${SRC} DIRECTORY)
+  get_filename_component(SRC_DIR ${SRC} DIRECTORY GENERATE_FOR)
+  message("GitVersion work dir ${SRC}  
+  ${SRC_DIR} 
+  ${DIRECTORY}")
   # Generate a git-describe version string from Git repository tags
   execute_process(
     COMMAND ${GIT_EXECUTABLE} describe --tags --long --dirty --match "v*"
-    WORKING_DIRECTORY ${SRC_DIR}
+    WORKING_DIRECTORY ${DIRECTORY}
     OUTPUT_VARIABLE GIT_DESCRIBE_VERSION
     RESULT_VARIABLE GIT_DESCRIBE_ERROR_CODE
     OUTPUT_STRIP_TRAILING_WHITESPACE
