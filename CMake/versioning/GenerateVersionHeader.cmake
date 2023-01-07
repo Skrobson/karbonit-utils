@@ -1,9 +1,12 @@
+set(HEADER_SRC ${CMAKE_CURRENT_LIST_DIR}/version.h.in)
+set(HEADER_DST ${CMAKE_BINARY_DIR}/utils/CMake/versioning/version.h)
+
+set(CMAKE_SRC ${CMAKE_CURRENT_LIST_DIR}/VersionForPackage.cmake.in)
+set(CMAKE_DST ${CMAKE_BINARY_DIR}/utils/CMake/versioning/VersionForPackage.cmake)
+
 function(generateVersionFromGit)
 if(GIT_EXECUTABLE)
-  get_filename_component(SRC_DIR ${SRC} DIRECTORY GENERATE_FOR)
-  message("GitVersion work dir ${SRC}  
-  ${SRC_DIR} 
-  ${DIRECTORY}")
+  message(STATUS "GenerateVersionHeader for: ${DIRECTORY}")
   # Generate a git-describe version string from Git repository tags
   execute_process(
     COMMAND ${GIT_EXECUTABLE} describe --tags --long --dirty --match "v*"
@@ -15,7 +18,7 @@ if(GIT_EXECUTABLE)
   if(NOT GIT_DESCRIBE_ERROR_CODE)
     set(VERSION_STRING ${GIT_DESCRIBE_VERSION})
    
-  string(REGEX REPLACE "^v.?([0-9]+)\\..*" "\\1" VERSION_MAJOR "${VERSION_STRING}")
+  string(REGEX REPLACE "^v.?([0-9]+[0-9]+)\\..*" "\\1" VERSION_MAJOR "${VERSION_STRING}")
   string(REGEX REPLACE "^v.?[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${VERSION_STRING}")
   string(REGEX REPLACE "^v.?[0-9]+\\.[0-9]+-([0-9]+).*" "\\1" VERSION_PATCH "${VERSION_STRING}")
   string(REGEX REPLACE "^v.?[0-9]+\\.[0-9]+-[0-9]+-(.*)" "\\1" VERSION_SHA1 "${VERSION_STRING}")
@@ -30,6 +33,6 @@ if(NOT DEFINED VERSION_STRING)
   message(WARNING "Failed to determine VERSION_STRING from Git tags. Using default version \"${VERSION_STRING}\".")
 endif()
 
-configure_file(${SRC} ${DST} @ONLY)
+configure_file(${HEADER_SRC} ${HEADER_DST} @ONLY)
 configure_file(${CMAKE_SRC} ${CMAKE_DST} @ONLY)
 endfunction()
