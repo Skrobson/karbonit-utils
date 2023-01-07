@@ -1,7 +1,11 @@
 #pragma once
+#include <string>
 
-#define VERSION_STRING "@VERSION_STRING@"
-#define VERSION_MAJOR "@VERSION_MAJOR@"
-#define VERSION_MINOR "@VERSION_MINOR@"
-#define VERSION_PATCH "@VERSION_PATCH@"
-#define VERSION_SHA1 "@VERSION_SHA1@"
+struct @VER_LIB@
+{
+    static constexpr unsigned VERSION_MAJOR  = @VERSION_MAJOR@;
+    static constexpr unsigned VERSION_MINOR  = @VERSION_MINOR@;
+    static constexpr unsigned VERSION_PATCH  = @VERSION_PATCH@;
+    static constexpr const char* VERSION_STRING = "@VERSION_STRING@";
+    static constexpr const char* VERSION_SHA1   = "@VERSION_SHA1@";
+};
