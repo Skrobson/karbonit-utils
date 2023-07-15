@@ -1,3 +1,9 @@
+#Directories
+_build
+build
+_dist
+dist
+
 # Prerequisites
 *.d
 
