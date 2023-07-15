@@ -11,13 +11,13 @@
 #include <map>
 #include <memory>
 
-namespace skr::logger
+namespace kit::logger
 {
     // inline void basicLogConfiguration(){
 
     // }
     using log_level = spdlog::level::level_enum;
-    class LogManager: public skr::Singleton<LogManager>
+    class LogManager: public kit::Singleton<LogManager>
     {
     public:
 
@@ -48,11 +48,11 @@ namespace skr::logger
     };
 }
 
-#ifndef DONT_USE_SKR_LOG
-#define SKR_LOG_T(...) spdlog::trace(__VA_ARGS__) 
-#define SKR_LOG_D(...) spdlog::debug(__VA_ARGS__)
-#define SKR_LOG_I(...) spdlog::info(__VA_ARGS__)
-#define SKR_LOG_W(...) spdlog::warn(__VA_ARGS__)
-#define SKR_LOG_E(...) spdlog::error(__VA_ARGS__)
-#define SKR_LOG_C(...) spdlog::critical(__VA_ARGS__)
+#ifndef DONT_USE_KIT_LOG
+#define KIT_LOG_T(...) spdlog::trace(__VA_ARGS__) 
+#define KIT_LOG_D(...) spdlog::debug(__VA_ARGS__)
+#define KIT_LOG_I(...) spdlog::info(__VA_ARGS__)
+#define KIT_LOG_W(...) spdlog::warn(__VA_ARGS__)
+#define KIT_LOG_E(...) spdlog::error(__VA_ARGS__)
+#define KIT_LOG_C(...) spdlog::critical(__VA_ARGS__)
 #endif

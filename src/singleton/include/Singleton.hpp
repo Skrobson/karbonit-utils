@@ -3,7 +3,7 @@
 #include <atomic>
 #include <mutex>
 
-namespace skr
+namespace kit
 {
 	template<typename T>
 	class Singleton

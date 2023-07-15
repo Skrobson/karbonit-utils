@@ -1,7 +1,7 @@
 #include "Logger.hpp"
 #include <spdlog/async.h>
 
-using namespace skr::logger;
+using namespace kit::logger;
 
 LogManager::LogManager()
 {

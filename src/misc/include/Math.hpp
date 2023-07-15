@@ -4,7 +4,7 @@
 #include <type_traits>
 //#include <concepts>
 
-namespace skr::math
+namespace kit::math
 {
     
     template<typename T, typename std::enable_if<std::is_arithmetic<T>::value, T>:: type* = nullptr>
