@@ -1,24 +1,33 @@
 set(logger_src 
-	Logger.cpp
+	KitLogManager.cpp
 )
 
-add_library(Logger 
+add_library(KitLogger 
 	STATIC	
 	${logger_src}
 )
 
-target_link_libraries(Logger
+target_link_libraries(KitLogger
 	PUBLIC
 	spdlog::spdlog
 	Singleton
 )
 
-target_include_directories(Logger
+target_include_directories(KitLogger
 	PUBLIC 
 	${CMAKE_CURRENT_SOURCE_DIR}/include
 	Singleton
 )
 
-install(TARGETS Logger 
+install(TARGETS KitLogger 
 	LIBRARY DESTINATION lib 
+)
+
+add_executable(logTest
+	test.cpp)
+target_link_libraries(logTest KitLogger)
+target_include_directories(logTest
+	PUBLIC 
+	${CMAKE_CURRENT_SOURCE_DIR}/include
+	Singleton
 )
