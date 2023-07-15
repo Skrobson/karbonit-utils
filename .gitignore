@@ -4,6 +4,9 @@ build
 _dist
 dist
 
+#vscode
+.vscode
+
 # Prerequisites
 *.d
 
