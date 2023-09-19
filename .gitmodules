@@ -1,3 +1,0 @@
-[submodule "3rdParty/--force"]
-	path = 3rdParty/--force
-	url = https://github.com/TartanLlama/expected.git
