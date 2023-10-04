@@ -1,3 +1,3 @@
-add_subdirectory(singleton)
-add_subdirectory(logger)
-add_subdirectory(misc)
+add_subdirectory(Singleton)
+add_subdirectory(Logger)
+add_subdirectory(Misc)
