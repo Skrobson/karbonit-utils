@@ -9,17 +9,6 @@ LogManager::LogManager()
     spdlog::init_thread_pool(8192, 1);
 }
 
-// void LogManager::log(LogLevel level, std::string_view msg)
-// {
-//     spdlog::log(level, msg);
-// }
-
-// void LogManager::log(std::string_view channel, LogLevel level, std::string_view msg)
-// {
-//     this->getLogger(channel)->log(level, msg);
-// }
-
-
 void LogManager::initDefaultLogger()
 {
     defaultLogger = std::make_shared<spdlog::async_logger>("DEFAULT", sinks.begin(), sinks.end(), spdlog::thread_pool());
@@ -45,20 +34,6 @@ void LogManager::configureDefaultFileSink(std::string_view logFilename)
     sinksMap.insert_or_assign(fileSinkName.data(), file_sink);
     sinks.emplace_back(std::move(file_sink));
 }
-
-void LogManager::deinitialize()
-{   
-    spdlog::shutdown();
-    spdlog::drop_all();
-}
-
-// bool kit::logger::LogManager::addCustomSink(std::string sinkName, spdlog::sink_ptr)
-// {
-//     if(initialized)
-//         return false;
-
-//     return false;
-// }
 
 void LogManager::setSinkLevel(std::string_view sinkName, LogLevel l)
 {
@@ -93,5 +68,6 @@ std::shared_ptr<spdlog::async_logger> kit::logger::LogManager::getLogger(std::st
 
 LogManager::~LogManager()
 {
+    spdlog::shutdown();
     std::cout << "Endlife of logger" << std::endl;
 }
