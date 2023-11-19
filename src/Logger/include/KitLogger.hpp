@@ -11,7 +11,7 @@
 #define KIT_LOG_E(...) kit::logger::LogManager::getInstance().log(kit::logger::LogLevel::err, __VA_ARGS__);
 #define KIT_LOG_C(...) kit::logger::LogManager::getInstance().log(kit::logger::LogLevel::critical, __VA_ARGS__);
 
-#define KIT_LOG_C_T(CHANNEL, ...) kit::logger::LogManager::getInstance().log(CHANNEL, kit::logger::LogLevel::trace, __VA_ARGS__); 
+#define KIT_LOG_C_T(CHANNEL, ...) kit::logger::LogManager::getInstance().log(CHANNEL, kit::logger::LogLevel::trace, __VA_ARGS__);
 #define KIT_LOG_C_D(CHANNEL, ...) kit::logger::LogManager::getInstance().log(CHANNEL, kit::logger::LogLevel::debug, __VA_ARGS__);
 #define KIT_LOG_C_I(CHANNEL, ...) kit::logger::LogManager::getInstance().log(CHANNEL, kit::logger::LogLevel::info, __VA_ARGS__);
 #define KIT_LOG_C_W(CHANNEL, ...) kit::logger::LogManager::getInstance().log(CHANNEL, kit::logger::LogLevel::warn, __VA_ARGS__);
@@ -32,7 +32,7 @@
 #define KIT_LOG_C_E_IF(CONDITION, CHANNEL, ...) if(CONDITION) KIT_LOG_C_E(CHANNEL, __VA_ARGS__)
 #define KIT_LOG_C_C_IF(CONDITION, CHANNEL, ...) if(CONDITION) KIT_LOG_C_C(CHANNEL, __VA_ARGS__)
 
-#define __LOG_EVERY_N(N) static int __count__ = 0; if(__count__++ % N == 0) 
+#define __LOG_EVERY_N(N) static int __count__ = 0; if(__count__++ % N == 0)
 
 #define KIT_LOG_T_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_T(__VA_ARGS__)
 #define KIT_LOG_D_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_D(__VA_ARGS__)

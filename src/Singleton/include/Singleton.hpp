@@ -27,20 +27,20 @@ namespace kit
 
 			return instance;
 		}
-	
+
 		Singleton(const Singleton&) = delete;
 		Singleton(Singleton&&) = delete;
 		Singleton& operator= (const Singleton&) = delete;
 		Singleton() = default;
 
 	protected:
-	
+
 		// static std::shared_ptr<T> instance;
 		// static std::mutex mtx;
 		// static std::atomic<bool> constructed;
 
 	};
-	
+
 // 	template<typename T>
 // 	std::shared_ptr<T> Singleton<T>::instance = nullptr;
 

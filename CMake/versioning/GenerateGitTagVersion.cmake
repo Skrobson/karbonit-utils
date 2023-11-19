@@ -13,15 +13,15 @@ set(CMAKE_DST ${VERLIB_BIN_DIR}/${version_lib_name}ForPackage.cmake)
 
 if(GIT_EXECUTABLE)
   message(STATUS "Generating version lib ${version_lib_name} for ${src_directory} directory.")
-  
+
   execute_process(
     COMMAND ${GIT_EXECUTABLE} branch --show-current
     WORKING_DIRECTORY ${src_directory}
     OUTPUT_VARIABLE GIT_BRANCH_VERSION
-    RESULT_VARIABLE GIT_BRANCH_ERROR_CODE   
+    RESULT_VARIABLE GIT_BRANCH_ERROR_CODE
     OUTPUT_STRIP_TRAILING_WHITESPACE
   )
-  
+
   # Generate a git-describe version string from Git repository tags
   execute_process(
     COMMAND ${GIT_EXECUTABLE} describe --tags --long --dirty --match "v*"
@@ -37,9 +37,9 @@ if(GIT_EXECUTABLE)
   string(REGEX REPLACE "^v.?[0-9]+\\.([0-9]+).*" "\\1" VERSION_MINOR "${GIT_DESCRIBE_VERSION}")
   string(REGEX REPLACE "^v.?[0-9]+\\.[0-9]+-([0-9]+).*" "\\1" VERSION_PATCH "${GIT_DESCRIBE_VERSION}")
   string(REGEX REPLACE "^v.?[0-9]+\\.[0-9]+-[0-9]+-(.*)" "\\1" VERSION_SHA1 "${GIT_DESCRIBE_VERSION}")
-  
+
   set(VERSION_STRING "${GIT_BRANCH_VERSION}_${VERSION_MAJOR}.${VERSION_MINOR}-${VERSION_PATCH}.${VERSION_SHA1}")
-  
+
   set(VER_LIB ${version_lib_name})
 
   endif()

@@ -8,12 +8,12 @@ namespace kit::be
 
     template<typename Sig>
     requires std::derived_from<Sig, bs2::signal_base>
-    class BoostSignalProxy 
+    class BoostSignalProxy
     {
     public:
         BoostSignalProxy(Sig &signal): signal(signal){}
         BoostSignalProxy() = delete;
-        
+
         auto connect(const Sig::slot_type& slot, bs2::connect_position connect_position= bs2::at_back){
             return signal.connect(slot, connect_position);
         }
@@ -22,9 +22,9 @@ namespace kit::be
           const Sig::slot_type &slot, bs2::connect_position position = bs2::at_back){
           return signal.connect(group, slot, position);
         }
-        
+
         auto connect_extended(const Sig::extended_slot_type &ext_slot, bs2::connect_position position = bs2::at_back){
-            return signal.connect_extended(ext_slot, position);            
+            return signal.connect_extended(ext_slot, position);
         }
 
         auto connect_extended(const Sig::group_type &group,
@@ -42,8 +42,8 @@ namespace kit::be
         }
 
     protected:
-        Sig &signal;            
-    
+        Sig &signal;
+
     private:
         BoostSignalProxy(const BoostSignalProxy&) = delete;
         BoostSignalProxy& operator=(const BoostSignalProxy&) = delete;

@@ -12,10 +12,10 @@ LogManager::LogManager()
 void LogManager::initDefaultLogger()
 {
     defaultLogger = std::make_shared<spdlog::async_logger>("DEFAULT", sinks.begin(), sinks.end(), spdlog::thread_pool());
-    defaultLogger->flush_on(spdlog::level::warn); 
+    defaultLogger->flush_on(spdlog::level::warn);
     spdlog::initialize_logger(defaultLogger);
     spdlog::set_default_logger(defaultLogger);
-    
+
     initialized = true;
 }
 
@@ -57,10 +57,10 @@ std::shared_ptr<spdlog::async_logger> kit::logger::LogManager::getLogger(std::st
     else
     {
         std::lock_guard<std::mutex> lock(sinksMtx);
-        
+
         logger = std::make_shared<spdlog::async_logger>(loggerName.data(), sinks.begin(), sinks.end(), spdlog::thread_pool());
         loggers.insert(std::make_pair(loggerName.data(), logger));
-        spdlog::initialize_logger(logger);                
+        spdlog::initialize_logger(logger);
     }
 
     return logger;
