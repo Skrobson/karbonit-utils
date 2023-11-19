@@ -33,7 +33,7 @@ namespace kit::be
         }
 
         void disconnect(const Sig::group_type &group){
-            signal.disconect(group);
+            signal.disconnect(group);
         }
 
         template <typename T>
