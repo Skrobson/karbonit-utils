@@ -2,7 +2,7 @@ add_library(BoostSignalsProxy INTERFACE
 
 )
 
-target_link_libraries(BoostSignalsProxy INTERFACE 
+target_link_libraries(BoostSignalsProxy INTERFACE
     Boost::boost
 )
 

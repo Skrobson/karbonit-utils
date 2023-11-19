@@ -10,6 +10,6 @@ target_link_libraries(BoostExtensions INTERFACE
     BoostSignalsProxy
 )
 
-target_include_directories(BoostExtensions INTERFACE 
+target_include_directories(BoostExtensions INTERFACE
     BoostSignalsProxy
 )

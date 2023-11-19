@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 
 #include <limits>
 #include <type_traits>
@@ -6,11 +6,11 @@
 
 namespace kit::math
 {
-    
+
     template<typename T, typename std::enable_if<std::is_arithmetic<T>::value, T>:: type* = nullptr>
     T abs(T t)
     {
-        return t < 0 ? -t : t; 
+        return t < 0 ? -t : t;
     };
 
     template<typename T, typename std::enable_if<std::is_floating_point<T>::value, T>::type* = nullptr>
