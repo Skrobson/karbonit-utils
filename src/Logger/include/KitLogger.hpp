@@ -61,22 +61,22 @@
     if (CONDITION)                                                                                                     \
     KIT_LOG_C_C(CHANNEL, __VA_ARGS__)
 
-#define __LOG_EVERY_N(N)                                                                                               \
-    static int __count__ = 0;                                                                                          \
-    if (__count__++ % N == 0)
+#define _LOG_EVERY_N(N)                                                                                                \
+    { static int _COUNT_ = 0;                                                                                          \
+    if (_COUNT_ ++ % N == 0)
 
-#define KIT_LOG_T_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_T(__VA_ARGS__)
-#define KIT_LOG_D_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_D(__VA_ARGS__)
-#define KIT_LOG_I_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_I(__VA_ARGS__)
-#define KIT_LOG_W_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_W(__VA_ARGS__)
-#define KIT_LOG_E_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_E(__VA_ARGS__)
-#define KIT_LOG_C_EVERY_N(N, ...) __LOG_EVERY_N(N) KIT_LOG_C(__VA_ARGS__)
+#define KIT_LOG_T_EVERY_N(N, ...) _LOG_EVERY_N(N) KIT_LOG_T(__VA_ARGS__) }
+#define KIT_LOG_D_EVERY_N(N, ...) _LOG_EVERY_N(N) KIT_LOG_D(__VA_ARGS__) }
+#define KIT_LOG_I_EVERY_N(N, ...) _LOG_EVERY_N(N) KIT_LOG_I(__VA_ARGS__) }
+#define KIT_LOG_W_EVERY_N(N, ...) _LOG_EVERY_N(N) KIT_LOG_W(__VA_ARGS__) }
+#define KIT_LOG_E_EVERY_N(N, ...) _LOG_EVERY_N(N) KIT_LOG_E(__VA_ARGS__) }
+#define KIT_LOG_C_EVERY_N(N, ...) _LOG_EVERY_N(N) KIT_LOG_C(__VA_ARGS__) }
 
-#define KIT_LOG_C_T_EVERY(N, CHANNEL, ...) __LOG_EVERY_N(N) KIT_LOG_C_T(CHANNEL, __VA_ARGS__)
-#define KIT_LOG_C_D_EVERY(N, CHANNEL, ...) __LOG_EVERY_N(N) KIT_LOG_C_D(CHANNEL, __VA_ARGS__)
-#define KIT_LOG_C_I_EVERY(N, CHANNEL, ...) __LOG_EVERY_N(N) KIT_LOG_C_I(CHANNEL, __VA_ARGS__)
-#define KIT_LOG_C_W_EVERY(N, CHANNEL, ...) __LOG_EVERY_N(N) KIT_LOG_C_W(CHANNEL, __VA_ARGS__)
-#define KIT_LOG_C_E_EVERY(N, CHANNEL, ...) __LOG_EVERY_N(N) KIT_LOG_C_E(CHANNEL, __VA_ARGS__)
-#define KIT_LOG_C_C_EVERY(N, CHANNEL, ...) __LOG_EVERY_N(N) KIT_LOG_C_C(CHANNEL, __VA_ARGS__)
+#define KIT_LOG_C_T_EVERY(N, CHANNEL, ...) _LOG_EVERY_N(N) KIT_LOG_C_T(CHANNEL, __VA_ARGS__) }
+#define KIT_LOG_C_D_EVERY(N, CHANNEL, ...) _LOG_EVERY_N(N) KIT_LOG_C_D(CHANNEL, __VA_ARGS__) }
+#define KIT_LOG_C_I_EVERY(N, CHANNEL, ...) _LOG_EVERY_N(N) KIT_LOG_C_I(CHANNEL, __VA_ARGS__) }
+#define KIT_LOG_C_W_EVERY(N, CHANNEL, ...) _LOG_EVERY_N(N) KIT_LOG_C_W(CHANNEL, __VA_ARGS__) }
+#define KIT_LOG_C_E_EVERY(N, CHANNEL, ...) _LOG_EVERY_N(N) KIT_LOG_C_E(CHANNEL, __VA_ARGS__) }
+#define KIT_LOG_C_C_EVERY(N, CHANNEL, ...) _LOG_EVERY_N(N) KIT_LOG_C_C(CHANNEL, __VA_ARGS__) }
 
 #endif

@@ -14,6 +14,7 @@ int main()
         KIT_LOG_W("Logg {}", i);
         KIT_LOG_C_I("CTest", "llll {}", i);
         KIT_LOG_E_EVERY_N(20, "Log every {}", i);
+        KIT_LOG_E_EVERY_N(2, "Log every2 {}", i);
         KIT_LOG_C_IF(i % 2 == 0, "CTest", "IF {}", i);
     }
 
