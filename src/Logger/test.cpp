@@ -2,22 +2,28 @@
 
 #include "KitLogger.hpp"
 
+using namespace kit;
 int main()
 {
-    kit::logger::LogManager::getInstance().configureDefaultConsoleSink();
-    kit::logger::LogManager::getInstance().initDefaultLogger();
-
-    std::thread t = std::thread([]() { KIT_LOG_W("THREAD"); });
+    kit::KitLogger.configureDefaultConsoleSink();
+    kit::KitLogger.init();
+    kit::KitLogger.log(kit::logger::LogLevel::INFO, "Test log");
+    kit::KitLogger.log(kit::logger::LogLevel::WARN, "Float log: {}", 3.14f);
+    std::thread t = std::thread([]() { for (auto i = 0; i < 100000; i++)
+    {
+        kit::KitLogger.log(kit::logger::LogLevel::INFO, "Thread log");
+        kit::KitLogger.log(kit::logger::LogLevel::WARN, "Thread log: {}", i);
+    }});
 
     for (auto i = 0; i < 100000; i++)
     {
-        KIT_LOG_W("Logg {}", i);
-        KIT_LOG_C_I("CTest", "llll {}", i);
-        KIT_LOG_E_EVERY_N(20, "Log every {}", i);
-        KIT_LOG_E_EVERY_N(2, "Log every2 {}", i);
-        KIT_LOG_C_IF(i % 2 == 0, "CTest", "IF {}", i);
+        kit::KitLogger.log(kit::logger::LogLevel::INFO, "Test log");
+        kit::KitLogger.log(kit::logger::LogLevel::CRITICAL, "Test log {}", i);
+        kit::KitLogger.log(kit::logger::LogLevel::WARN, "Test log {}", i);
     }
 
     if (t.joinable())
-        t.join();
+      t.join();
+
+    KitLogger.log("SecondLogger", kit::logger::LogLevel::ERROR, "Second logger log");
 }
