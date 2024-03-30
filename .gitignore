@@ -4,6 +4,9 @@ build
 _dist
 dist
 
+#conan
+CMakeUserPresets.json
+
 #vscode
 .vscode
 

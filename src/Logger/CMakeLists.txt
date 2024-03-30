@@ -9,7 +9,7 @@ add_library(KitLogger
 
 target_link_libraries(KitLogger
 	PUBLIC
-	spdlog::spdlog
+	spdlog::spdlog_header_only
 )
 
 target_include_directories(KitLogger
