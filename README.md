@@ -1,7 +1,11 @@
 ## Dependencies
 
-conan install . -pr ./conan/conan_ubuntu --build=missing
+```
+./dependencies.sh
+```
 
-cmake -S . -B build -DCMAKE_TOOLCHAIN_FILE=build/Release/generators/conan_toolchain.cmake -DCMAKE_BUILD_TYPE=Release
+## Using
 
-if cmake v > 3.23 use preset
+Add tis repo as submodule.
+
+conan package in prepare.
