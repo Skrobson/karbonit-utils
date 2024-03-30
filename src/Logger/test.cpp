@@ -20,6 +20,7 @@ int main()
         kit::KitLogger.log(kit::logger::LogLevel::INFO, "Test log");
         kit::KitLogger.log(kit::logger::LogLevel::CRITICAL, "Test log {}", i);
         kit::KitLogger.log(kit::logger::LogLevel::WARN, "Test log {}", i);
+        KIT_LOG_C_C_IF(i%2, "CONDITIONAL", "Conditional {}", i);
     }
 
     if (t.joinable())
