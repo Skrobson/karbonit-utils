@@ -14,7 +14,7 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/CMake")
 
 
 find_package(spdlog REQUIRED)
-find_package(Boost 1.84 COMPONENTS system filesystem iostreams serialization thread REQUIRED)
+find_package(Boost 1.83 COMPONENTS system filesystem iostreams serialization thread REQUIRED)
 find_package(GTest)
 
 add_subdirectory(3rdParty)

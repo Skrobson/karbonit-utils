@@ -21,7 +21,7 @@ class Karbonit_utils(ConanFile):
 
 
     def requirements(self):
-        self.requires("boost/1.84.0")
+        self.requires("boost/1.83.0")
         self.requires("spdlog/1.13.0")
 
 
