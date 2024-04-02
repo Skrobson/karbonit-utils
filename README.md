@@ -6,6 +6,6 @@
 
 ## Using
 
-Add tis repo as submodule.
+Add this repo as submodule.
 
 conan package in prepare.
